@@ -1,5 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
+import * as auth from './auth'
 
 const port = 3000
 
@@ -17,11 +18,12 @@ app.get('/', (req: express.Request, res: express.Response): void => {
 app.get('/sign-in', (req: express.Request, res: express.Response): void => {
   res.render('sign_in')
 })
-
-app.post('/sign-in/auth', (req: express.Request, res: express.Response): void => {
-  console.log(req.body)
-  res.json(req.body)
+app.get('/sign-up', (req: express.Request, res: express.Response): void => {
+  res.render('sign_up')
 })
+
+app.post('/sign-in/auth', auth.signIn)
+app.post('/sign-up/auth', auth.signUp)
 
 app.listen(port, (): void => {
   console.log(`Listening on port ${port}`)

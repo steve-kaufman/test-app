@@ -1,0 +1,28 @@
+extends layout.pug
+
+block main
+  div(style="width: 400px;").card.mx-auto.my-4
+    form.text-center.background-light#signupForm
+      p.h4.bg-info.text-light.p-4 Sign Up
+      div.card-body.px-5.py-4
+        p(for="signupFormEmail").text-left Email:
+        input(
+          type="email",
+          placeholder="email"
+        ).form-control.mb-4#signupFormEmail
+        p(for="signupFormUsername").text-left Username:
+        input(
+          type="text",
+          placeholder="username"
+        ).form-control.mb-4#signupFormUsername
+        p(for="signupFormPassword").text-left Password:
+        input(
+          type="password",
+          placeholder="password"
+        ).form-control.mb-4#signupFormPassword
+        button(type="submit").btn.btn-info.btn-block.my-4 Sign Up
+        p Already Have an Account?
+          a(href="/sign-in") &nbsp; Sign In
+
+append scripts
+  script(src="scripts/sign_up.js")
